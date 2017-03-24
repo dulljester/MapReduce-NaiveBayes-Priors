@@ -1,7 +1,5 @@
+package ca.dal.csci6405.project.mrjob02;
 
-/**
- * Created by sj on 22/03/17.
- */
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.filecache.DistributedCache;
@@ -22,7 +20,7 @@ public class HDPDriver extends Configured implements Tool {
             System.err.printf("usage: %s <inputfile> <outputdir>\n",getClass().getSimpleName());
             System.exit(1);
         }
-        Job job = new Job(getConf(),"Calculating Priors");
+        Job job = Job.getInstance(getConf(),"NBC: Calculating Priors");
 
         job.setJarByClass(HDPDriver.class);
         job.setMapperClass(HDPMapper.class);
@@ -40,7 +38,7 @@ public class HDPDriver extends Configured implements Tool {
     }
     public static void main( String [] args ) throws Exception {
         Configuration conf = new Configuration();
-        System.exit(ToolRunner.run(conf,new (),args));
+        System.exit(ToolRunner.run(conf,new HDPDriver(),args));
     }
 }
 

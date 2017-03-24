@@ -1,7 +1,4 @@
 package ca.dal.csci6405.project.mrjob02;
-/**
- * Created by sj on 23/03/17.
- */
 
 import java.io.*;
 import java.util.*;
